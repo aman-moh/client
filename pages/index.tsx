@@ -15,7 +15,7 @@ function Index() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/home')
+    fetch('https://server-production-cbce.up.railway.app/api/home')
       .then(response => response.json())
       .then(data => {
         setHookScript(data.hook_script)
