@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
-function index() {
+function Index() {
 
-  const [message, SetMessage] = useState('Loading...')
-  const [people, SetPeople] = useState([])
+  const [message, setMessage] = useState('Loading...')
+  const [people, setPeople] = useState([])
   useEffect(() => {
     fetch('http://localhost:8080/api/home')
       .then(response => response.json())
       .then(data => {
-        SetMessage(data.message)
-        SetPeople(data.people)
+        setMessage(data.message)
+        setPeople(data.people)
       })
   }, [])
 
@@ -17,7 +17,7 @@ function index() {
     <div>
       <h1>{message}</h1>
       <ul>
-        {people.map((person, index) => (
+        {people.map(person => (
           <li key={person}>{person}</li>
         ))}
       </ul>
@@ -25,4 +25,4 @@ function index() {
   )
 }
 
-export default index
+export default Index
